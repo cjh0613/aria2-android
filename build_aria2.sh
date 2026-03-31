@@ -150,8 +150,8 @@ do
     --with-libz \
     --with-libssh2 \
     $configure_params \
-    CXXFLAGS="-Os -g" \
-    CFLAGS="-Os -g" \
+    CXXFLAGS="-Os -s" \
+    CFLAGS="-Os -s" \
     CPPFLAGS="-fPIE" \
     LDFLAGS="-fPIE -pie -L$LIBS_TARGET_DIR/lib -static-libstdc++ -Wl,-z,max-page-size=16384" \
     PKG_CONFIG_LIBDIR="$LIBS_TARGET_DIR/lib/pkgconfig" || exit
