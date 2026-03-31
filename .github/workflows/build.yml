@@ -28,13 +28,20 @@ jobs:
           file ./bin/arm64-v8a/bin/aria2c
           file ./bin/x86/bin/aria2c
           file ./bin/x86_64/bin/aria2c
+      - name: Rename binaries
+        run: |
+          mkdir -p release
+          cp ./bin/armeabi-v7a/bin/aria2c ./release/aria2c-armeabi-v7a
+          cp ./bin/arm64-v8a/bin/aria2c ./release/aria2c-arm64-v8a
+          cp ./bin/x86/bin/aria2c ./release/aria2c-x86
+          cp ./bin/x86_64/bin/aria2c ./release/aria2c-x86_64
       - name: Create Release
         uses: softprops/action-gh-release@v1
         with:
           files: |
-            ./bin/armeabi-v7a/bin/aria2c
-            ./bin/arm64-v8a/bin/aria2c
-            ./bin/x86/bin/aria2c
-            ./bin/x86_64/bin/aria2c
+            ./release/aria2c-armeabi-v7a
+            ./release/aria2c-arm64-v8a
+            ./release/aria2c-x86
+            ./release/aria2c-x86_64
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
