@@ -28,3 +28,13 @@ jobs:
           file ./bin/arm64-v8a/bin/aria2c
           file ./bin/x86/bin/aria2c
           file ./bin/x86_64/bin/aria2c
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            ./bin/armeabi-v7a/bin/aria2c
+            ./bin/arm64-v8a/bin/aria2c
+            ./bin/x86/bin/aria2c
+            ./bin/x86_64/bin/aria2c
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
