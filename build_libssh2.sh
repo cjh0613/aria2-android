@@ -4,7 +4,7 @@ set -ex
 
 pushd libssh2
 echo -e "\n\n----- Build libssh2 ($(git describe --tags)) -----"
-./buildconf
+autoreconf -fi
 
 INSTALL_DIR="$1"
 export LDFLAGS="$LDFLAGS -latomic"
